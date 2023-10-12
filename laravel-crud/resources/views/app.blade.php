@@ -1,6 +1,6 @@
-@include('layouts.header');
+@include('layouts.header')
 
 <div class="container">
-    @yield('content');
+    @yield('content')
 </div>
-@include('layouts.footer');
+@include('layouts.footer')
