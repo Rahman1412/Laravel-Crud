@@ -2,56 +2,39 @@
 
 @section('content')
 
+<!-- If we are using return view method then we have to use this way to show message -->
+@if(!empty($success))
+<div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+    <strong>Success!</strong> {{$success}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
+
+<!-- If we use return redirect method then we have to use this way to show message -->
+<!-- @if(Session::has('success'))
+<div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+    <strong>Success!</strong> {{Session::get('success')}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif -->
+
 
 <div class="card mt-2">
     <div class="card-header d-flex">
         <h3 class="mr-auto text-info">USERS</h3>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">ADD USER</button>
+        <a type="button" href="{{url('create-user')}}" class="btn btn-primary">ADD USER</a>
     </div>
+
     <div class="card-body">
 
     </div>
 </div>
 
 
-
-<!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Add User</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form id="userForm">
-            <div class="form-group">
-                <label for="username">Name</label>
-                <input type="text" class="form-control" name="username">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" name="email">
-            </div>
-            <div class="form-group">
-                <label for="phone_no">Phone</label>
-                <input type="phone_no" class="form-control" name="phone_no">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password">
-            </div>
-            <button class="btn btn-info btn-block" type="submit">Submit</button>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 
 @endsection

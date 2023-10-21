@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,9 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('pages/about');
 });
+
+Route::get('/create-user',function(){
+    return view('pages/add-users');
+});
+
+Route::post('/add-user',[UserController::class,'addUser'])->name('addUser');
