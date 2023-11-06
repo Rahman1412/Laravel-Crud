@@ -8,6 +8,12 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+
+    public function home(Request $request){
+        $users = User::paginate(10);
+        return view('pages/home',compact('users'));
+    }
+
     public function addUser(Request $request){
         $validation = $request->validate([
             'username' => 'required',
@@ -25,7 +31,8 @@ class UserController extends Controller
         if(!$created){
             return back()->with('error','Unable to create user, Please try again');
         }
-        return view('pages/home')->with('success','User Created Successfully');
-        // return redirect('/')->with('success','User Created Successfully');
+        $users = User::all();
+        // return view('pages/home',compact('users'))->with('success','User Created Successfully');
+        return redirect('/')->with('success','User Created Successfully');
     }
 }

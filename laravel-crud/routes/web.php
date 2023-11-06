@@ -14,10 +14,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages/home');
-});
-
+Route::get('/',[UserController::class,'home']);
 
 Route::get('/about', function () {
     return view('pages/about');
